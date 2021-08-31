@@ -12,6 +12,8 @@ const headerHeight = getStatusBarHeight();
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
+//test commit
+
 const NavigationDrawerStructure = (props) => {
     //Structure for the navigatin Drawer
     const toggleDrawer = () => {
