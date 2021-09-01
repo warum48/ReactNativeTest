@@ -110,7 +110,7 @@ function ScreenStackDynamic({ navigation, ...propa }) {
                       //<Button ref={refreshWebViewBut} onPress={clickWV} title="R" color="#841584" accessibilityLabel="r"/>
                   //),
                     headerStyle: {
-                        backgroundColor: propa.route.params.color || "#000000", //Set Header color
+                        backgroundColor: propa.route.params.color || "#333333", //Set Header color
                     },
                     headerTintColor: '#fff', //Set Header text color
                     headerTitleStyle: {
@@ -140,7 +140,7 @@ const App = () => {
 
     useEffect(() => {
         //fetch('https://dev.nahab.info/aerovadim/expo/test.json')
-        fetch('https://dev.nahab.info/sp/api/vars/list/all.json')
+        fetch('https://dev.nahab.info/sp/api/vars/list/all.json?v=1')
             .then((response) => response.json())
             .then((json) => setData(json))
             //.then((json) => setData(json.projects.slice(0, 3)))
@@ -158,8 +158,8 @@ const App = () => {
           <Drawer.Navigator screenOptions={{
               headerShown: false
           }}>
-              {data.projects?.map((item, index) => (
-                  <Drawer.Screen key={index} name={Math.random() + (item.title || item.name)} component={ScreenStackDynamic} initialParams={item} />
+              {data.projects?.slice(0, 20).map((item, index) => (
+                  <Drawer.Screen key={index} name={(item.title || item.name)} component={ScreenStackDynamic} initialParams={item} />
               ))}
           </Drawer.Navigator>
       ) : <IndicatorLoadingView/> }
@@ -168,6 +168,8 @@ const App = () => {
 }
 
 /*
+
+//Math.random() + 
 
 //simple test
 <View style={{
