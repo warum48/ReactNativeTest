@@ -17,6 +17,10 @@ target 'ReactNativeTest' do
     # Pods for testing
   end
 
+  target 'SpecialProjectsClip' do
+    inherit! :complete
+  end
+
   # Enables Flipper.
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and

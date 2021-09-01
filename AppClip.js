@@ -1,6 +1,4 @@
-import { name as appName } from './app.json';
 import React, { useState, useEffect, useRef } from 'react';
-import { Component } from "react";
 import { ActivityIndicator, AppRegistry, Button, Text, View, StyleSheet, Image, TouchableOpacity, Platform } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { NavigationContainer } from '@react-navigation/native';
@@ -11,8 +9,6 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 const headerHeight = getStatusBarHeight();
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
-
-//test commit
 
 const NavigationDrawerStructure = (props) => {
     //Structure for the navigatin Drawer
@@ -38,8 +34,8 @@ const NavigationDrawerStructure = (props) => {
     );
 };
 function ScreenDynamic({ navigation, ...props }) {
-    console.log('propppssss', props);
-    console.log('navipropppssss', navigation);
+    //console.log('propppssss', props);
+    //console.log('navipropppssss', navigation);
     const refreshWebViewBut = useRef(null);
     const webv = useRef(null);
     function clickWV(){
@@ -67,7 +63,6 @@ function ScreenDynamic({ navigation, ...props }) {
       ) });
     }, [navigation]);
 
-    //props.refreshWebViewBut.onclick=()=>clickWV();
     return (
         <View style={{ flex: 1, justifyContent: 'center' }}>
             <WebView 
@@ -82,8 +77,7 @@ function ScreenDynamic({ navigation, ...props }) {
 function ScreenStackDynamic({ navigation, ...propa }) {
     console.log('--propa--', propa);
     //console.log('navigation', navigation);
-    //ref={(ref) => refreshWebViewBut = ref}
-    const refreshWebViewBut = useRef(null);
+    /*const refreshWebViewBut = useRef(null);
     function clickWV(){
       console.log('WV');
     }
@@ -91,24 +85,18 @@ function ScreenStackDynamic({ navigation, ...propa }) {
       //refreshWebViewBut.current.onPress=()=>clickWV();
       console.log('R--------------------------------------');
     }, [])
+    */
     //
     return (
         <Stack.Navigator initialRouteName="FirstPage">
             <Stack.Screen
                 name="FirstPage"
-                //component={ScreenDynamic}
-                //initialParams={{ url: propa.route.params.url }}
                 initialParams={propa.route.params}
-                //initialParams={{refreshWebViewBut: refreshWebViewBut.current, ...propa.route.params}}
                 options={{
                     title: propa.route.params.title || propa.route.params.name,//'' + JSON.stringify(propa) , //Set Header Title //Cosmopolitan / Lioton
                     headerLeft: () => (
                         <NavigationDrawerStructure navigationProps={navigation} />
                     ),
-                    //headerRight: () => (
-                      
-                      //<Button ref={refreshWebViewBut} onPress={clickWV} title="R" color="#841584" accessibilityLabel="r"/>
-                  //),
                     headerStyle: {
                         backgroundColor: propa.route.params.color || "#333333", //Set Header color
                     },
@@ -125,7 +113,7 @@ function ScreenStackDynamic({ navigation, ...propa }) {
 function IndicatorLoadingView() {
     return (
       <ActivityIndicator
-        color="#48B7F5"
+        color="#666666"
         size="large"
         style={styles.IndicatorStyle}
       />
@@ -133,7 +121,7 @@ function IndicatorLoadingView() {
   }
 
 //  const App: () => Node = () => { 
-const App = () => {
+const AppClip = () => {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
     console.log(data);
@@ -224,7 +212,4 @@ const styles = StyleSheet.create({
       }
 });
 
-
-
-//AppRegistry.registerComponent(appName, () => App);
-export default App;
+export default AppClip;
