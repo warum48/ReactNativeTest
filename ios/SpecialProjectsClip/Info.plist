@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>ReactNativeTest</string>
+	<string>Special Projects</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -28,6 +28,19 @@
 		<false/>
 		<key>NSAppClipRequestLocationConfirmation</key>
 		<false/>
+	</dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
 	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
@@ -71,19 +84,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-	<key>NSAllowsArbitraryLoads</key>
-	<true/>
-	<key>NSExceptionDomains</key>
-	<dict>
-		<key>localhost</key>
-		<dict>
-		<key>NSExceptionAllowsInsecureHTTPLoads</key>
-		<true/>
-		</dict>
-	</dict>
-	</dict>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
